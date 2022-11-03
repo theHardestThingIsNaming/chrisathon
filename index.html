@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link href="assets/css/index.css" rel="stylesheet">
+  <script>
+
+    function typeWriter(id, i, message) {
+      if (i < message.length) {
+        document.getElementById(id).innerHTML += message.charAt(i);
+        i++;
+        setTimeout(function () {
+          typeWriter(id, i, message);
+        }, 110);
+      }
+    }
+
+    function openup() {
+      document.getElementById('music').innerHTML = '<audio id="opening" src="assets/audio/deviant.mp3#t=14" type="audio/mpeg" loop>Audio tag not supported</audio>';
+      var x = document.getElementById("opening");
+      x.play();
+      document.getElementById('landingScreen').style.display = 'block';
+      document.getElementById('openingcontainer').remove()
+      document.getElementById('insert_coin').style.display = 'block';
+
+      setTimeout(function () {
+        document.getElementById('insert_coin').style.animation = 'pulse 5s infinite';
+      }, 6000);
+
+      document.getElementById('insert_coin').onclick = function () {
+        document.getElementById('landingContainer').remove();
+        initGameMode();
+      }
+    }
+
+    function calculateSize() {
+      var w_w = window.innerWidth * window.devicePixelRatio;
+      var w_h = window.innerHeight * window.devicePixelRatio;
+      var g_w = w_w;
+      var originalAspectRatio = 1.5;
+      var currentAspectRatio = g_w / w_h;
+      if (currentAspectRatio < 1 && window.devicePixelRatio !== 1) {
+        return false;
+      }
+      if (currentAspectRatio > originalAspectRatio) {
+        if (w_h > 640) {
+          globalParams.selectedResolution = 1366;
+          globalParams.calculatedHeight = 900;
+          globalParams.calculatedWidth = w_w * (900 / w_h);
+        } else {
+          globalParams.selectedResolution = 960;
+          globalParams.calculatedHeight = 640;
+          globalParams.calculatedWidth = w_w * (640 / w_h);
+        }
+      } else {
+        if (w_w > 960) {
+          globalParams.selectedResolution = 1366;
+          globalParams.calculatedWidth = 1366;
+          globalParams.calculatedHeight = w_h * (1366 / w_w);
+        } else {
+          globalParams.selectedResolution = 960;
+          globalParams.calculatedWidth = 960;
+          globalParams.calculatedHeight = w_h * (960 / w_w);
+        }
+      }
+      return true;
+    }
+
+    function handleIncorrect() {
+      if (typeof window.orientation !== 'undefined') {
+        document.getElementById("turn").style.display = "block";
+        typeWriter("turn", 0, "Your orientation won't do, landscape that shit!");
+      }
+    }
+
+    function handleCorrect() {
+      if (typeof window.orientation !== 'undefined') {
+        document.getElementById("turn").style.display = "none";
+      }
+    }
+
+    var globalParams = {
+      calculatedWidth: 1366,
+      calculatedHeight: 768
+    }
+
+    function initGameMode() {
+      if (calculateSize()) {
+        startGame();
+      } else {
+        document.getElementById("turn").style.display = "block";
+        typeWriter("turn", 0, "Your orientation won't do, landscape that shit!");
+        window.addEventListener("orientationchange", onOrientationChange, false);
+      }
+    }
+
+    function onOrientationChange() {
+      if (typeof isInitializedInPotrait === 'undefined') {
+        document.getElementById("turn").style.display = "none";
+        setTimeout(function () {
+          if (calculateSize()) {
+            startGame();
+          } else {
+            document.getElementById("turn").style.display = "block";
+          }
+        }, 1000);
+      }
+    }
+
+    function startGame() {
+      window.removeEventListener("orientationchange", onOrientationChange);
+      var game = new Phaser.Game(globalParams.calculatedWidth, globalParams.calculatedHeight, Phaser.CANVAS, "gameContainer");
+      game.state.add('Boot', BasicGame.Boot);
+      game.state.add('Preloader', BasicGame.Preloader);
+      game.state.add('MainMenu', BasicGame.MainMenu);
+      game.state.add('Level', BasicGame.Level);
+
+      game.state.start('Boot');
+    };
+  </script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/phaser@3.15.1/dist/phaser-arcade-physics.min.js"></script> -->
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/phaser/2.6.2/phaser.min.js"></script>
+  <script src="assets/js/boot.js"></script>
+  <script src="assets/js/preloader.js"></script>
+  <script src="assets/js/mainmenu.js"></script>
+  <script src="assets/js/level.js"></script>
+  <script src="assets/js/style.js"></script>
+  <script src="assets/js/items.js"></script>
+  <script src="assets/js/platforms.js"></script>
+  <script src="assets/js/weapons.js"></script>
+  <script src="assets/js/player.js"></script>
+  <script src="assets/js/hud.js"></script>
+  <noscript>Please enable javascript to continue using this application.</noscript>
+</head>
+
+<body>
+  <div id="openingcontainer">
+    <img class="responsive center" id="begin_image" src='assets/img/evil-eyes.gif' onclick="openup()" />
+    <div id="textOverEyes"></div>
+  </div>
+  <div id="landingContainer">
+    <img src='assets/img/moving_backgound.gif' id='landingScreen' />
+    <img src='assets/img/insert_coin.png' id='insert_coin' />
+  </div>
+  <div id="music"></div>
+  <div id="gameContainer"></div>
+  <div id="turn"></div>
+</body>
+<script>typeWriter("textOverEyes", 0, 'Every great story needs a sequel');</script>
+
+</html>

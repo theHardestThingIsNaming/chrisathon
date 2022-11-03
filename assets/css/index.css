@@ -1,0 +1,128 @@
+@import url(https://fonts.googleapis.com/css?family=Shadows+Into+Light);
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    background-color: #060106;
+}
+
+#landingContainer {
+    position: relative;
+    max-width: fit-content;
+    margin: auto;
+    height: 100%;
+    width: 100%;
+}
+
+#landingScreen {
+    display: none;
+    max-width: fit-content;
+    height: 100%;
+    max-width: 100%
+}
+
+#openingcontainer {
+    background: #060106;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.center {
+    min-width: 100%;
+    max-height: 100%;
+    position: absolute;
+    animation: pulse 5s infinite;
+}
+
+.parent {
+    position: relative;
+}
+
+.button {
+    background-color: #FF3864;
+    color: antiquewhite;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 100%;
+    font-family: 'Shadows Into Light';
+    animation: pulse 10s infinite;
+    margin-top: 15%;
+}
+
+#textOverEyes {
+    position: absolute;
+    top: 15px;
+    width: 100%;
+    /* left: 53%; */
+    /* transform: translate(-50%, -50%); */
+    color: #a40b34;
+    font-weight: 900;
+    transition: .7s;
+    text-transform: uppercase;
+    font-size: 300%;
+    font-family: 'Shadows Into Light';
+    text-align: center;
+}
+
+#turn {
+    width: 100%;
+    min-height: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background-image: url('../img/warning.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: none;
+    color: #a40b34;
+    text-transform: uppercase;
+    font-size: 500%;
+    font-family: 'Shadows Into Light';
+    text-align: center;
+}
+
+.pulse-button:hover {
+    animation: none;
+}
+
+@keyframes pulse {
+    10% {
+        transform: scale(.9);
+    }
+
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 50px rgba(#5a99d4, 0);
+    }
+
+    100% {
+        transform: scale(.9);
+        box-shadow: 0 0 0 0 rgba(#5a99d4, 0);
+    }
+}
+
+#insert_coin {
+    width: 20%;
+    display: none;
+    animation: clickit 6s;
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    right: 0;
+    margin: auto;
+}
+
+@keyframes clickit {
+    0% {
+        opacity: 0
+    }
+
+    80% {
+        opacity: 0
+    }
+
+    100% {
+        opacity: 1
+    }
+}
