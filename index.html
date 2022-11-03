@@ -70,7 +70,6 @@
     function handleIncorrect() {
       if (typeof window.orientation !== 'undefined') {
         document.getElementById("turn").style.display = "block";
-        typeWriter("turn", 0, "Your orientation won't do, landscape that shit!");
       }
     }
 
@@ -90,7 +89,6 @@
         startGame();
       } else {
         document.getElementById("turn").style.display = "block";
-        typeWriter("turn", 0, "Your orientation won't do, landscape that shit!");
         window.addEventListener("orientationchange", onOrientationChange, false);
       }
     }

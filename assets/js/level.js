@@ -95,7 +95,7 @@ BasicGame.Level.prototype = {
 
         if (!this.game.player.playerAlive) {
             if (this.message == null) {
-                this.message = new Message(this.game, 'YOU MESSY BASTARD :(', 'Scrape off the vomit and get back to it', true);
+                this.message = new Message(this.game, 'MESSY BASTARD :(', 'Scrape off the vomit and get back to it', true);
             }
 
             this.game.player.frame = 2;
@@ -105,7 +105,7 @@ BasicGame.Level.prototype = {
         if (this.game.playerWins) {
             if (this.id < 2) {
                 if (this.message == null) {
-                    this.message = new Message(this.game, 'MOAR', 'As I was going over...', true);
+                    this.message = new Message(this.game, 'MOAR', '', true);
                     localStorage.setItem('currentlevel', (this.id + 1).toString());
                 }
                 this.quitGame('Level', this.id + 1);
