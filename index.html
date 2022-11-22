@@ -18,15 +18,17 @@
 
     function openup() {
       document.getElementById('music').innerHTML = '<audio id="opening" src="assets/audio/deviant.mp3#t=14" type="audio/mpeg" loop>Audio tag not supported</audio>';
-      var x = document.getElementById("opening");
-      x.play();
+      document.getElementById("opening").play();
+
       document.getElementById('landingScreen').style.display = 'block';
       document.getElementById('openingcontainer').remove()
       document.getElementById('insert_coin').style.display = 'block';
 
+      var waitForTheDrop = 6000;
+      // var waitForTheDrop = 600;
       setTimeout(function () {
         document.getElementById('insert_coin').style.animation = 'pulse 5s infinite';
-      }, 6000);
+      }, waitForTheDrop);
 
       document.getElementById('insert_coin').onclick = function () {
         document.getElementById('landingContainer').remove();

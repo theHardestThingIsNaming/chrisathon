@@ -95,7 +95,7 @@ BasicGame.Level.prototype = {
 
         if (!this.game.player.playerAlive) {
             if (this.message == null) {
-                this.message = new Message(this.game, 'MESSY BASTARD :(', 'Scrape off the vomit and get back to it', true);
+                this.message = new Message(this.game, 'MESSY :(', 'Scrape off the vomit and get back to it', true);
             }
 
             this.game.player.frame = 2;
@@ -105,13 +105,13 @@ BasicGame.Level.prototype = {
         if (this.game.playerWins) {
             if (this.id < 2) {
                 if (this.message == null) {
-                    this.message = new Message(this.game, 'MOAR', '', true);
+                    this.message = new Message(this.game, 'ONE MOAR FOR LUCK', '', true);
                     localStorage.setItem('currentlevel', (this.id + 1).toString());
                 }
                 this.quitGame('Level', this.id + 1);
             } else {
                 if (this.message == null) {
-                    this.message = new Message(this.game, 'WE MADE IT', 'Time for the BOSS FIGHT!', true);
+                    this.message = new Message(this.game, 'WE MADE IT', 'BOSS FIGHT!', true);
                     localStorage.setItem('currentlevel', '0');
                 }
             }

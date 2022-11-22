@@ -7,16 +7,19 @@ Message = function (game, msg, subMsg, blink) {
     this.timer = 0;
     this.blink = blink;
 
-    this.msg = this.game.add.bitmapText(this.game.camera.width / 2, this.game.camera.height / 2 - 50, 'carrier_command', msg, 48);
+    this.textHeight = this.game.camera.height * 0.15
+    this.msg = this.game.add.bitmapText(this.game.camera.width / 2, this.textHeight, 'carrier_command', msg, 48);
     this.msg.x -= this.msg.textWidth * 0.5;
     this.msg.y -= this.msg.textHeight * 0.5;
-    this.msg.tint = 0x000000;
+    this.msg.tint = 0x00F1FF;
     this.msg.fixedToCamera = true;
 
-    this.subMsg = this.game.add.bitmapText(this.game.camera.width / 2, this.game.camera.height / 2 + 50, 'carrier_command', subMsg, 22);
+
+    this.subtextHeight = this.textHeight + 100
+    this.subMsg = this.game.add.bitmapText(this.game.camera.width / 2, this.subtextHeight, 'carrier_command', subMsg, 22);
     this.subMsg.x -= this.subMsg.textWidth * 0.5;
     this.subMsg.y -= this.subMsg.textHeight * 0.5;
-    this.subMsg.tint = 0x000000;
+    this.subMsg.tint = 0x00e2fb;
     this.subMsg.fixedToCamera = true;
 };
 
@@ -43,13 +46,13 @@ Background = function (game, width, height) {
     this.bg = game.add.bitmapData(width, height);
     this.bg.addToWorld();
 
-    var n = height / 10 + 1;
+    var n = height / 5 + 1;
     var y = 0;
 
     for (var i = 0; i < n; i++) {
-        var c = Phaser.Color.interpolateColor(0x100441, 0xff79e6, n, i);
-        this.bg.rect(0, y, width, y + 10, Phaser.Color.getWebRGB(c));
-        y += 10;
+        var c = Phaser.Color.interpolateColor(0x290297, 0xfc1afc, n, i);
+        this.bg.rect(0, y, width, y + 5, Phaser.Color.getWebRGB(c));
+        y += 5;
     }
 };
 
