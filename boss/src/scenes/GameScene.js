@@ -139,7 +139,20 @@ class GameScene extends Phaser.Scene {
       bullet.deactivate();
       alien.explode();
       if (this.alienManager.testAllAliensDead()) {
-         // TODO We're done
+        var endTime = new Date();
+        var startTime = Date.parse(localStorage.startTime); // parse to date object
+        const sizeY = this.game.canvas.height;
+        const sizeX = this.game.canvas.width;
+        const textConfig =
+          { fontSize: '88px', fontFamily: 'Pixel', fill: "#6abe30" };
+
+        const timescore = (endTime - startTime) / 1000
+
+        this.gameoverText = this.add.text(sizeX / 2, sizeY / 2 - 100,
+          "Time: " + timescore + " seconds", textConfig)
+          .setVisible(true)
+          .setDepth(1);
+        this.gameoverText.setOrigin(0.5);
       }
     }
   }

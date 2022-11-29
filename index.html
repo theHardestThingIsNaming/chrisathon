@@ -109,6 +109,8 @@
     }
 
     function startGame() {
+      var startTime = new Date();
+      localStorage.startTime = startTime;
       window.removeEventListener("orientationchange", onOrientationChange);
       var game = new Phaser.Game(globalParams.calculatedWidth, globalParams.calculatedHeight, Phaser.CANVAS, "gameContainer");
       game.state.add('Boot', BasicGame.Boot);

@@ -4,9 +4,7 @@ class BootScene extends Phaser.Scene {
     super({ key: 'BootScene' });
   }
 
-  preload() {
-    console.log("BOSS FIGHT CIARAN");
-  }
+  preload() { }
 
   create() {
     let sizeY = this.game.canvas.height;

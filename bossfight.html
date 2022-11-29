@@ -21,6 +21,16 @@
       transform: translate(-50%, -50%);
     }
 
+    #bossSegway {
+      display: block;
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: 100%;
+    }
+
     @font-face {
       font-family: Pixel;
       src: url('boss/assets/pixel.ttf');
@@ -39,11 +49,24 @@
   <script src="boss/src/RocketFactory.js"></script>
   <script src="boss/src/ScoreManager.js"></script>
   <script src="boss/src/index.js"></script>
+  <script>
+    function openup() {
+      document.getElementById('music').innerHTML = '<audio id="opening" src="assets/audio/deviant.mp3#t=14" type="audio/mpeg" loop>Audio tag not supported</audio>';
+      document.getElementById('bossSegway').onclick = function () {
+        document.getElementById('bossSegway').remove();
+        startBossFight();
+      }
+    }
+
+  </script>
 </head>
 
 <body style="overflow: hidden;">
+  <div id="music"></div>
+  <img src='boss/assets/bossSegway.gif' id='bossSegway' />
   <div id="boss-fight-game"></div>
   <div style="font-family:Pixel; position:absolute; left:-1000px; visibility:hidden;">.</div>
 </body>
+<script>openup()</script>
 
 </html>
