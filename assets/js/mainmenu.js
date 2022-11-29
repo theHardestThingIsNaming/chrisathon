@@ -25,8 +25,8 @@ BasicGame.MainMenu.prototype = {
         // create local storage entry
         // var currentlevel = localStorage.getItem('currentlevel');
         // if (currentlevel == null) {
-        localStorage.setItem('currentlevel', '0');
-        currentlevel = 0;
+        localStorage.setItem('currentlevel', '2');
+        currentlevel = 2;
         // }
 
         // start game

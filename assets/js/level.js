@@ -73,7 +73,7 @@ BasicGame.Level.prototype = {
         this.finishCloud.body.setCollisionGroup(this.game.spriteCG);
         this.finishCloud.body.collides(this.game.spriteCG);
 
-        this.game.camera.follow(this.game.player);  
+        this.game.camera.follow(this.game.player);
         this.timer = 0;
         this.timer2 = 0;
         this.game.playerHasMoved = false;
@@ -113,6 +113,7 @@ BasicGame.Level.prototype = {
                 if (this.message == null) {
                     this.message = new Message(this.game, 'WE MADE IT', 'BOSS FIGHT!', true);
                     localStorage.setItem('currentlevel', '0');
+                    window.location.href = '/bossfight.html';
                 }
             }
 
