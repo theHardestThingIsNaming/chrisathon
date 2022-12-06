@@ -15,6 +15,7 @@ class LoaderScene extends Phaser.Scene {
     });
 
     this.load.image('background', 'boss/assets/background.png');
+    this.load.image('chris', 'boss/assets/chris.png');
     this.load.image('moveButtons', 'boss/assets/moveButtons.png');
     this.load.image('fireButton', 'boss/assets/fireButton.png');
     this.load.image('bullet', 'boss/assets/bullet.png');

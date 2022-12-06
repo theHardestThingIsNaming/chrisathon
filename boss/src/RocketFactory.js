@@ -2,7 +2,7 @@
 
 class RocketFactory {
   create(scene) {
-    let rocket = scene.physics.add.sprite(300, 500, "graphic", GC.ROCKET)
+    let rocket = scene.physics.add.sprite(300, 500, "chris", GC.ROCKET)
       .setImmovable(true);
 
     rocket.setCollideWorldBounds(true);
