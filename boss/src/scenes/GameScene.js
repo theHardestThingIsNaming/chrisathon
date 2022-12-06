@@ -149,7 +149,7 @@ class GameScene extends Phaser.Scene {
         const timescore = (endTime - startTime) / 1000
 
         this.gameoverText = this.add.text(sizeX / 2, sizeY / 2 - 100,
-          "Time: " + timescore + " seconds", textConfig)
+          "Time: \n" + timescore + " seconds", { fontSize: '44px', fontFamily: 'Pixel', fill: "#6abe30" })
           .setVisible(true)
           .setDepth(1);
         this.gameoverText.setOrigin(0.5);
