@@ -13,14 +13,8 @@ BasicGame.Boot.prototype = {
     },
 
     create: function () {
-        isInitializedInPotrait = this.scale.isGamePortrait;
-        this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-        this.scale.forceOrientation(true, false);
-        this.scale.enterIncorrectOrientation.add(handleIncorrect);
-        this.scale.leaveIncorrectOrientation.add(handleCorrect);
-        this.scale.setScreenSize = true;
-        this.stage.scale.pageAlignHorizontally = true;
-        this.stage.scale.pageAlignVeritcally = true;
+        this.game.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
+        this.game.scale.startFullScreen();
         this.state.start("Preloader");
     }
 };
