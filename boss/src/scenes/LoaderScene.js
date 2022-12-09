@@ -35,15 +35,6 @@ class LoaderScene extends Phaser.Scene {
     this.alienAnimFactory(GC.ALIEN_2);
     this.alienAnimFactory(GC.ALIEN_3);
 
-    // this.anims.create({
-    //   key: 'explosion',
-    //   frames: this.anims.generateFrameNumbers('graphic', { start: 7, end: 7 }),
-    //   frameRate: 1,
-    //   repeat: 1
-    // });
-
-
-
     this.anims.create({
       key: 'bomb',
       frames: this.anims.generateFrameNumbers('bomb', { start: 0, end: 1 }),

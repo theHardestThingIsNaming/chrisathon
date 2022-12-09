@@ -56,13 +56,17 @@ body {
     width: 100%;
     /* left: 53%; */
     /* transform: translate(-50%, -50%); */
-    color: #a40b34;
+    color: #66afab;
     font-weight: 900;
     transition: .7s;
     text-transform: uppercase;
     font-size: 300%;
     font-family: 'Shadows Into Light';
     text-align: center;
+}
+
+#begin_image {
+    width: 90%;
 }
 
 #turn {

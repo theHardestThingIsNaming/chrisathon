@@ -8,11 +8,15 @@
 
     function typeWriter(id, i, message) {
       if (i < message.length) {
-        document.getElementById(id).innerHTML += message.charAt(i);
+        if (message.charAt(i) == '#') {
+          document.getElementById(id).innerHTML += "<br>"
+        } else {
+          document.getElementById(id).innerHTML += message.charAt(i);
+        }
         i++;
         setTimeout(function () {
           typeWriter(id, i, message);
-        }, 110);
+        }, 30);
       }
     }
 
@@ -27,7 +31,7 @@
       var waitForTheDrop = 6000;
       // var waitForTheDrop = 600;
       setTimeout(function () {
-        document.getElementById('insert_coin').style.animation = 'pulse 5s infinite';
+        document.getElementById('insert_coin').style.animation = 'pulse 3s infinite';
       }, waitForTheDrop);
 
       document.getElementById('insert_coin').onclick = function () {
@@ -138,8 +142,8 @@
 
 <body>
   <div id="openingcontainer">
-    <img class="responsive center" id="begin_image" src='assets/img/evil-eyes.gif' onclick="openup()" />
-    <div id="textOverEyes"></div>
+    <img class="center" id="begin_image" src='assets/img/evil-eyes.gif' onclick="openup()" />
+    <div id="textOverEyes" onclick="openup()"></div>
   </div>
   <div id="landingContainer">
     <img src='assets/img/moving_backgound.gif' id='landingScreen' />
@@ -149,6 +153,15 @@
   <div id="gameContainer"></div>
   <div id="turn"></div>
 </body>
-<script>typeWriter("textOverEyes", 0, 'Every great story needs a sequel');</script>
+<script>typeWriter("textOverEyes", 0, `Every great story needs a sequel... 
+########
+PREVIOUSLY: Our hero Chris shamed Dr.Kinsey into exile by defeating his selection of fine Spirits, in a single week no less!! 
+#
+When Chris had finished with Dr.Kinsey Spirits, he stopped a Demonic shed summoning using only his rocket fists of fury.
+#
+The year is now 2040, civilization has failed and Dr.Kinsey has returned!
+##
+<TAP THE EYES TO CONTINUE>
+`);</script>
 
 </html>
