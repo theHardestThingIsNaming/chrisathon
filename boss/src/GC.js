@@ -9,7 +9,8 @@ var GC = {
 var STATE = {
   READY: 0,
   RUN: 1,
-  GAMEOVER: 2
+  GAMEOVER: 2,
+  WINNER: 3
 }
 var MOVING = {
   STOP: 0,

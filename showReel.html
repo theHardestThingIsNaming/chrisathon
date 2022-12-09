@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+<style>
+    html,
+    body {
+        height: 100%;
+        margin: 0;
+        background-color: #060106;
+    }
+
+    #reel {
+        max-height: 100vh;
+        max-width: 100vh;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+
+<body>
+    <img src="reel/0.png" id="reel">
+    <audio id="opening" src="reel/whiskey.mp3#t=25" type="audio/mpeg" loop>Audio tag not supported</audio>
+</body>
+<script>
+    document.getElementById("opening").play();
+    var i = 1;
+    function change_image(i) {
+        document.getElementById("reel").src = "reel/" + i % 30 + ".png";
+        i += 1;
+        setTimeout(function () {
+            change_image(i);
+        }, 2000);
+    }
+    setTimeout(function () {
+        change_image(i);
+    }, 2000);
+</script>
+
+</html>

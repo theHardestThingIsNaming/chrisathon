@@ -153,6 +153,7 @@ class GameScene extends Phaser.Scene {
           .setVisible(true)
           .setDepth(1);
         this.gameoverText.setOrigin(0.5);
+        this.state = STATE.WINNER;
       }
     }
   }
@@ -217,6 +218,8 @@ class GameScene extends Phaser.Scene {
       this.fireBullet();
     } else if (this.state == STATE.READY) {
       this.restartGame();
+    } else if (this.state == STATE.WINNER) {
+      window.location.href = '/showReel.html';
     } else {
       console.log(this.state);
     }
