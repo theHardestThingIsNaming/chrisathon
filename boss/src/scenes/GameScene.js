@@ -10,7 +10,10 @@ class GameScene extends Phaser.Scene {
     background.setPosition(0, 0);
     this.level = 1;
     this.sound.add('explosion');
+    this.sound.add('PATHETIC');
+    this.sound.add('DemonicLaugh');
     this.sound.add('shoot');
+    this.sound.play('DemonicLaugh');
     this.cursors = this.input.keyboard.createCursorKeys();
 
     const moveButtons = this.add.image(0, 0, 'moveButtons').setOrigin(0);
@@ -62,7 +65,7 @@ class GameScene extends Phaser.Scene {
     this.gameoverText.setOrigin(0.5);
 
     this.beginText = this.add.text(sizeX / 2, (sizeY / 2) - 10,
-      'PRESS FIRE TO GET BACK UP', { fontSize: '44px', fontFamily: 'Pixel', fill: "#f70a0a" })
+      'PRESS FIRE TO GET BACK UP', { fontSize: '44px', fontFamily: 'Pixel', fill: "#f00a0a" })
       .setVisible(false)
       .setDepth(2);
     this.beginText.setOrigin(0.5);
@@ -143,9 +146,6 @@ class GameScene extends Phaser.Scene {
         var startTime = Date.parse(localStorage.startTime); // parse to date object
         const sizeY = this.game.canvas.height;
         const sizeX = this.game.canvas.width;
-        const textConfig =
-          { fontSize: '88px', fontFamily: 'Pixel', fill: "#6abe30" };
-
         const timescore = (endTime - startTime) / 1000
 
         this.gameoverText = this.add.text(sizeX / 2, sizeY / 2 - 100,
@@ -176,8 +176,8 @@ class GameScene extends Phaser.Scene {
   gameover() {
     this.rocketMoving = MOVING.STOP;
     this.state = STATE.GAMEOVER;
-    this.sound.play('explosion');
-    this.rocket.play('explosion');
+    this.sound.play('PATHETIC');
+    this.sound.play('explosion', { volume: 0.3 });
     this.time.removeAllEvents();
     this.alienManager.gameover();
     this.bullets.getChildren().forEach(
@@ -204,7 +204,6 @@ class GameScene extends Phaser.Scene {
   restartGame() {
     this.state = STATE.RUN;
     this.rocketMoving = MOVING.STOP;
-    this.rocket.play('rocket');
     this.beginText.setVisible(false);
     this.gameoverText.setVisible(false);
     this.bombs.getChildren().forEach(

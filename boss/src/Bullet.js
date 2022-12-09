@@ -5,7 +5,7 @@ class Bullet extends Phaser.Physics.Arcade.Sprite {
   }
 
   shoot(x, y) {
-    this.scene.sound.play('shoot');
+    this.scene.sound.play('shoot', { volume: 0.3 });
     this.setCollideWorldBounds(true);
     this.body.onWorldBounds = true;
     this.enableBody(true, x, y, true, true);
@@ -13,6 +13,6 @@ class Bullet extends Phaser.Physics.Arcade.Sprite {
   }
 
   deactivate() {
-    this.disableBody (true, true);
+    this.disableBody(true, true);
   }
 }

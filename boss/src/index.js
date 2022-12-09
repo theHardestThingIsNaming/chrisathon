@@ -14,7 +14,7 @@ var config = {
 
 // Bootstrap game
 var game;
-function startBossFight () {
+function startBossFight() {
   game = new Phaser.Game(config);
   window.focus();
   resizeGame();

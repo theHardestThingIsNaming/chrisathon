@@ -51,7 +51,8 @@
   <script src="boss/src/index.js"></script>
   <script>
     function openup() {
-      document.getElementById('music').innerHTML = '<audio id="opening" src="assets/audio/deviant.mp3#t=14" type="audio/mpeg" loop>Audio tag not supported</audio>';
+      document.getElementById('music').innerHTML = '<audio id="opening" src="assets/audio/boss.mp3#t=18" type="audio/mpeg" loop>Audio tag not supported</audio>';
+      document.getElementById("opening").play();
       document.getElementById('bossSegway').onclick = function () {
         document.getElementById('bossSegway').remove();
         startBossFight();

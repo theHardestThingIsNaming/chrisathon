@@ -20,6 +20,8 @@ class LoaderScene extends Phaser.Scene {
     this.load.image('fireButton', 'boss/assets/fireButton.png');
     this.load.image('bullet', 'boss/assets/bullet.png');
     this.load.audio('explosion', 'boss/assets/audio/explosion.wav');
+    this.load.audio('DemonicLaugh', 'assets/audio/DemonicLaugh.mp3');
+    this.load.audio('PATHETIC', 'assets/audio/PATHETIC.mp3');
     this.load.audio('shoot', 'boss/assets/audio/shoot.wav');
   }
 
@@ -33,20 +35,14 @@ class LoaderScene extends Phaser.Scene {
     this.alienAnimFactory(GC.ALIEN_2);
     this.alienAnimFactory(GC.ALIEN_3);
 
-    this.anims.create({
-      key: 'explosion',
-      frames: this.anims.generateFrameNumbers('graphic', { start: 7, end: 7 }),
-      frameRate: 1,
-      repeat: 1
-    });
+    // this.anims.create({
+    //   key: 'explosion',
+    //   frames: this.anims.generateFrameNumbers('graphic', { start: 7, end: 7 }),
+    //   frameRate: 1,
+    //   repeat: 1
+    // });
 
-    this.anims.create({
-      key: 'rocket',
-      frames: this.anims.generateFrameNumbers('graphic',
-        { start: GC.ROCKET, end: GC.ROCKET }),
-      frameRate: 0,
-      repeat: 0
-    });
+
 
     this.anims.create({
       key: 'bomb',
